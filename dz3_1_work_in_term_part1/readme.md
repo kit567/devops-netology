@@ -32,4 +32,4 @@ touch {1..100000}
  
  type -a bash
 ```
-
+![alt screenshot](PATH.png "Скриншот вывода команды")
