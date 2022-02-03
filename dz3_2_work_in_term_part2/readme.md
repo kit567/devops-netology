@@ -10,7 +10,24 @@
 ```
 3. Какой процесс с PID `1` является родителем для всех процессов в вашей виртуальной машине Ubuntu 20.04?
 ```
-*/sbin/init*
+*systemd*
+но ответ на вопрос не вполне однозначный, потому что запускается он именно как /sbin/init 
+
+vagrant@vagrant:~$ uname -a
+Linux vagrant 5.4.0-91-generic #102-Ubuntu SMP Fri Nov 5 16:31:28 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+vagrant@vagrant:~$ sudo cat /proc/1/cmdline
+/sbin/init
+vagrant@vagrant:~$ stat /sbin/init
+  File: /sbin/init -> /lib/systemd/systemd
+  Size: 20        	Blocks: 0          IO Block: 4096   symbolic link
+Device: fd00h/64768d	Inode: 1835374     Links: 1
+Access: (0777/lrwxrwxrwx)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2022-02-03 06:50:31.372682383 +0000
+Modify: 2021-09-07 18:37:22.000000000 +0000
+Change: 2021-12-19 19:43:17.423540888 +0000
+ Birth: -
+
+
 
 ```
 4. Как будет выглядеть команда, которая перенаправит вывод stderr `ls` на другую сессию терминала?
