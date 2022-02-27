@@ -1,9 +1,8 @@
 [Unit]
 Description=Metrics collector
-#After=remote-fs.target nss-user-lookup.target
 
 [Service]
-ExecStart=/home/vagrant/node_exporter/node_exporter -web.config ./node_exporter.conf
-KillMode=process
-Restart=on-failure
+ExecStart=/home/vagrant/node_exporter/node_exporter --web.config /home/vagrant/node_exporter/node_exporter.conf
 
+[Install]
+WantedBy=multi-user.target
