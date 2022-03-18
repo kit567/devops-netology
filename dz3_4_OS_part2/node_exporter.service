@@ -2,7 +2,7 @@
 Description=Metrics collector
 
 [Service]
-ExecStart=/home/vagrant/node_exporter/node_exporter --web.config /home/vagrant/node_exporter/node_exporter.conf
-
+EnvironmentFile=-./nodeexporter.conf
+ExecStart=/home/vagrant/node_exporter/node_exporter -f $EXTRA_OPTS
 [Install]
 WantedBy=multi-user.target
